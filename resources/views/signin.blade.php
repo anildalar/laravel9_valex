@@ -81,12 +81,27 @@
 												<div class="main-signup-header">
 													<h2>Welcome back!</h2>
 													<h5 class="fw-semibold mb-4">Please sign in to continue.</h5>
-													<form action="#">
+													@if ($errors->any())
+														@foreach ($errors->all() as $error)
+															<div>{{$error}}</div>
+														@endforeach
+													@endif
+													<form action="{{ url('/login') }}" method="post">
+														@csrf
 														<div class="form-group">
-															<label>Email</label> <input class="form-control" placeholder="Enter your email" type="text">
+															<label>Email</label>
+															<input name="email" class="form-control" placeholder="Enter your email" type="text">
+															@if ($errors->has('email'))
+															<span class="text-danger">{{ $errors->first('email') }}</span>
+															@endif
 														</div>
 														<div class="form-group">
-															<label>Password</label> <input class="form-control" placeholder="Enter your password" type="password">
+															<label>Password</label>
+															<input name="password" class="form-control" placeholder="Enter your password" type="password">
+															@if ($errors->has('password'))
+															<span class="text-danger">{{ $errors->first('password') }}</span>
+															@endif
+															
 														</div><button class="btn btn-main-primary btn-block">Sign In</button>
 														<div class="row row-xs">
 															<div class="col-sm-6">

@@ -1,0 +1,366 @@
+Laravel Application
+
+MVC (Model View Controller)
+
+C = Controller (Main Business Logic)
+	App/HTTP/Controllers
+
+View (HTML,CSS,JS,jQuery,Bootstrap)
+
+	Laravel_App
+			--->resources
+					--->views
+							1.
+							2.
+
+Models (Database)
+		App/Models/
+
+So Every Laravel View Must Contain extention ".blade.php"
+
+
+What are rountes?
+		
+		website:port/someroute
+
+So on which route which view file will be loaded is controlled by routing system.
+
+127.0.0.1:8000/anil   ----> anil.blade.php
+127.0.0.1:8000/krishnapal   ----> krishnapal.blade.php
+
+Folder Structure for routing system
+	routing system
+				routes/web.php
+
+How the routing system work in Laravel?
+
+
+How to send data to view in laravel?
+or 
+Different ways for passing data to view in Laravel?
+
+Compact is a core php function
+
+https://www.w3schools.com/php/func_array_compact.asp
+
+
+1. view()
+2. compact()
+3. with()
+4. Controller Class
+
+how to send data from controller class to view in laravel
+
+
+Data(Controller)------> View
+
+Data(Web.php/Route File)------> View
+1. view()
+2. compact()
+3. with()
+
+
+composer create-project laravel/laravel <project_name>
+ 
+cd <project_name>
+ 
+php artisan serve
+
+syntax
+git clone <repo_link> -b <branch_name>
+
+eg.
+git clone https://github.com/anildalar/Laravel9.git -b master
+
+composer install
+
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan db:seed to run seeders, if any.
+
+php artisan migrate:fresh --seed
+
+php artisan serve
+
+How to create a controller file in laravel
+
+Controller and Model files are created using Laravel Commands
+
+https://laravel.com/docs/9.x/controllers
+
+syntax
+php artisan make:controller <controller_name>
+eg.
+php artisan make:controller Anil
+
+
+
+
+https://www.w3schools.com/php/php_oop_what_is.asp
+
+OOPS
+
+Object Oriented Programing Languages.
+
+class ChildClass extends ParentClass {
+
+}
+
+
+You can create application using
+1. Procedural technique (Functions)
+2. OOPs technique   (Class and Object)
+
+
+
+
+How to create model file in laravel ?
+
+php artisan make:model YourNewModel
+
+
+How to create table in laravel using migration ?
+1.Create the database manually
+2. Connnect the laravel to Database
+		create a .env and copy all content of .env.example and page in .env
+3. Change the db credentail in .env file		
+
+Note:-
+Never create the tables manually
+
+Migration File ------> Migrate --------> Table
+
+
+To create tables in laravel you need to create migration files
+
+
+php artisan make:migration create_categories_table
+
+php artisan make:migration create_products_table
+
+Where are the migration files stored in Laravel
+
+database/migrations
+
+
+https://laravel.com/docs/9.x/migrations
+
+php artisan migrate:reset
+php artisan migrate
+
+https://laravel.com/docs/7.x/migrations
+
+
+Brands
+CRUD
+
+Controller
+Models
+View
+
+Artisan is a CLI of Laravels
+
+How to create Controller and Models in Laravel using single artisan Command ?
+
+f
+Brands
+
+https://laravel.com/docs/9.x/controllers
+Specifying The Resource Model
+
+
+7 Resource methods
+	1. index  // R = Read
+	2. create // to show the form
+	3. store  // C = Create
+	4. show  
+	5. edit   // U = Update
+	6. update // U = Update
+	7. destroy  // D = Delete
+
+
+
+Resource Controller
+
+php artisan make:controller PhotoController --model=Photo --resource
+php artisan make:controller BrandController --model=Brand 
+
+y.
+PS C:\xampp2\htdocs\Laravel9> php artisan make:controller Kishan --resource
+
+
+
+php artisan serve --port=9000
+
+
+How to create Controller,Model and Migrations in a single artisan command
+
+
+/category --> index (Listing)
+
+/category/create ---> create (Form show)
+
+
+How to create default data in laravel tables
+
+Laravel seeding
+
+
+If you want to create a table in laravel
+1. Create Migrations file
+2. Migrate
+
+Database/Migrations
+
+If you wan to seed in a table in larvel
+1. Create Seed File
+2. Seeding
+
+Database/Seeders
+
+php artisan make:seeder CategorySeeder
+
+php artisan db:seed
+php artisan db:seed --class=Category2Seeder
+
+Artisan is a Laravel CLI
+
+
+
+How to access laravel application in LAN (Local Area Network) ?
+php artisan serve --help
+
+cmd
+ipconfig  ipv4
+
+php artisan serve --host=192.168.1.10 --port=9000
+http://192.168.1.10:9000/
+
+dd = dump die
+
+dd(); dd fuction is a laravel function and will not work in core php
+
+
+var_dump() is a core php function and will also work in laravel framework
+
+Data (Database)--->(Model)---->Controller--------> View
+
+How to send data from model to controller in laravel ?
+
+how to send data from model to controller in laravel
+
+
+laravel 
+	1. query builder
+
+	2. eloquent
+
+
+
+So How to send data from view to controller in laravel ?
+
+
+1. With AJAX request (Without Page Reload Technique)
+
+2. Without AJAX request (Page Reload Technique)
+
+Blade Templating System (Frontend/Views)
+
+Data (Database)(Data)  <---- (Model)  <----- Controller <----- View (Form)
+
+Data (Database)  ----> (Model)(Data)  -----> Controller -----> View (Form)
+
+form 
+Action = Where to send = Kaha bhejna hai
+		ResourceController  ---> store method
+
+Method = How to send   = Kese bhejna hai
+			1. POST
+			2. GET
+
+
+How to get the base url in laravel
+
+use Illuminate\Support\Facades\URL;
+
+URL::to('/')
+
+URL Generation
+
+route() ------- point to ---> web.php (Laravel Routing System)
+
+
+
+ php artisan db:seed -----> will execute the database/seeders/DatabaseSeeder.php
+
+
+
+
+ How to prefix the api in laravel
+
+ How to validate data in store method
+how to validate data in laravel
+
+
+There are two ways to validate data in laravel
+
+Store method
+1. $request->validate()
+2. aValidator manually using facade (Validator::make()).
+
+
+laravel validation alphabet only
+
+only alphabets
+
+regex:/^[a-z A-Z]+$/u
+
+How to share data globally in laravle ?
+
+https://laravel.com/docs/9.x/views#sharing-data-with-all-views
+
+How to insert users record in laravel seeder
+
+There are two way to store/edit/update/delete (CRUD) data in database in laravel
+
+1. Query Builder Class
+2. Eleqoent ORM
+
+
+One Way Hashing Algorithm
+
+Possilbel
+Plain Password ----> Hashing Algorithm ---> Hash
+
+Impoosible
+Plain Password <---- Hashing Algorithm <--- Hash
+
+1. MD5 (Message Digest 5)  32
+2. SHA1 (Secure Hash Algorithm)  40
+3. SHA512 (Secure Hash Algorithm) 512
+5. bcrypt (Blowfish )   60
+
+
+
+How to make custom login and registration system in laravel 9
+
+Laravel 9 Custom Auth Login and Registration Tutorial
+
+
+
+action = kaha
+
+method = kese
+	1. GET
+	2. POST
+
+
+
+Error
+
+419 PAGE EXPIRED
+
+Solution
+	Form CSRF
+	@csrf
